@@ -8,16 +8,18 @@ class StartPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def click_on_yandex_service(self, requested_service):
+    def click_on_yandex_service(self, requested_service, return_href=None):
 
         services_list = WebDriverWait(self.driver, 20).until(
             EC.presence_of_all_elements_located(
-                (By.CLASS_NAME, "services-new__item-title")
+                (By.CSS_SELECTOR, ".services-new_adaptive_yes .services-new__item")
             )
         )
 
         for el in services_list:
             if requested_service in el.text:
+                if return_href:
+                    return el.get_attribute("href")
                 return el
 
     def enter_text_into_search(self):
