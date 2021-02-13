@@ -1,8 +1,11 @@
-from YandexPages import StartPage
-from YandexPages import ResultList
+from YandexPages import StartPage, \
+						ResultList
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+
 import pytest
 
 
@@ -19,7 +22,7 @@ def test_tensor_search_in_yandex(driver):
 		)
 	), "Таблица с подсказками не обнаружена"
 
-	StartPage(driver).find_button_click().click()
+	entry_field.send_keys(Keys.ENTER)
 	result_list = ResultList(driver).return_result_list()
 
 	counter = 0
