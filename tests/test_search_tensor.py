@@ -1,5 +1,5 @@
 from YandexPages import StartPage, \
-						ResultList
+						return_result_list
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -27,7 +27,7 @@ def test_tensor_search_in_yandex(driver):
 	), "Таблица с подсказками не обнаружена"
 
 	entry_field.send_keys(Keys.ENTER)
-	result_list = ResultList(driver).return_result_list()
+	result_list = return_result_list(driver)
 
 	counter = 0
 	counter_results = 0

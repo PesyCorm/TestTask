@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 # Возвращает список с текстом, ссылками результатов поиска, проверкой на рекламу
 #   *если результат является рекламой, check_ad будет True
 
-    def return_result_list(driver):
+def return_result_list(driver):
 
         result_list_len = len(WebDriverWait(driver, 20).until(
             EC.presence_of_all_elements_located(
