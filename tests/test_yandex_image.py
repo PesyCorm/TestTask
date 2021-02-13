@@ -11,8 +11,13 @@ from YandexPages import StartPage, \
 import pytest
 import time
 
+# Картинки на Яндексе
+# ___________________________________________________________
+# Тест иногда падал в процессе перелистывания картинок
+#   -после добавления time.sleep (стр. 40 и 44) падений не было
 
 def test_yandex_image(driver):
+
     assert StartPage(driver).click_on_yandex_service("Картинки", True), "Ссылка на Я.Картинки не обнаружена на странице"
     StartPage(driver).click_on_yandex_service("Картинки").click()
 

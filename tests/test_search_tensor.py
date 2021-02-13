@@ -8,6 +8,10 @@ from selenium.webdriver.common.keys import Keys
 
 import pytest
 
+# Поиск в Яндексе
+# ___________________________________________________________
+# В большинстве случаев тест падает из-за того,
+# 	что на странице нет ожидаемого кол-ва ссылок на tensor.ru
 
 def test_tensor_search_in_yandex(driver):
 

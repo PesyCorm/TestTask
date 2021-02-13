@@ -2,13 +2,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# Работает на главной странице yandex.ru
+# В класс передается драйвер
+# click_on_yandex_service принимает в аргумент имя сервиса (например, "Картинки"), возвращает элемент сервиса на странице
+#   *также можно передать значение для аргумента return_href (например, True), тогда метод вернет ссылку на сервис
+# enter_text_into_search возвращает элемент поля поиска
+# find_button_click возвращает элемент кнопки "Найти"
 
 class StartPage:
 
     def __init__(self, driver):
         self.driver = driver
 
-    def click_on_yandex_service(self, requested_service, return_href=None):
+    def click_on_yandex_service(self, requested_service: str, return_href=None):
 
         services_list = WebDriverWait(self.driver, 20).until(
             EC.presence_of_all_elements_located(
