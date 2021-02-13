@@ -35,4 +35,4 @@ def test_tensor_search_in_yandex(driver):
 		else:
 			break
 
-	assert counter_results == 5, f"Ожидалось, что первые 5 рузультатов содержат ссылку 'tensor.ru', обнаружено {counter_results}"
+	assert counter_results == 5, f"Ожидалось, что первые 5 результатов содержат ссылку 'tensor.ru', обнаружено {counter_results}"
