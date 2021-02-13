@@ -11,7 +11,7 @@ def test_tensor_search_in_yandex(driver):
 	entry_field = StartPage(driver).enter_text_into_search()
 	assert entry_field, "Поле поиска не найдено"
 
-	entry_field.send_keys("тензор")
+	entry_field.send_keys("Тензор")
 
 	assert WebDriverWait(driver, 5).until(
 		EC.presence_of_element_located(
