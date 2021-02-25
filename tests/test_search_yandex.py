@@ -11,14 +11,14 @@ import pytest
 # Поиск в Яндексе
 # ___________________________________________________________
 # В большинстве случаев тест падает из-за того,
-# 	что на странице нет ожидаемого кол-ва ссылок на tensor.ru
+# 	что на странице нет ожидаемого кол-ва ссылок на yandex.ru
 
 def test_tensor_search_in_yandex(driver):
 
 	entry_field = StartPage(driver).enter_text_into_search()
 	assert entry_field, "Поле поиска не найдено"
 
-	entry_field.send_keys("Тензор")
+	entry_field.send_keys("Яндекс")
 
 	assert WebDriverWait(driver, 5).until(
 		EC.presence_of_element_located(
@@ -36,10 +36,10 @@ def test_tensor_search_in_yandex(driver):
 		if result_list[counter]["check_ad"]:
 			continue
 		elif counter < 5:
-			if "tensor.ru" in result_list[counter]["result_link"]:
+			if "yandex.ru" in result_list[counter]["result_link"]:
 				counter_results += 1
 			counter += 1
 		else:
 			break
 
-	assert counter_results == 5, f"Ожидалось, что первые 5 результатов содержат ссылку 'tensor.ru', обнаружено {counter_results}"
+	assert counter_results == 5, f"Ожидалось, что первые 5 результатов содержат ссылку 'yandex.ru', обнаружено {counter_results}"
